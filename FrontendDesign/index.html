@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyPilot V1 - 交互原型</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container" id="app-container">
+        <!-- 侧边栏 (默认显示) -->
+        <aside class="sidebar" id="global-sidebar">
+            <div class="sidebar-header">
+                <h2>StudyPilot</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#macro-plan" class="nav-item active" data-view="macro-plan">
+                    <span>全部学习计划</span>
+                </a>
+                <a href="#workbench" class="nav-item" data-view="workbench">
+                    <span>学习工作台</span>
+                </a>
+                <a href="#knowledge-base" class="nav-item" data-view="knowledge-base">
+                    <span>知识仓库</span>
+                </a>
+                <a href="#assessment" class="nav-item" data-view="assessment">
+                    <span>阶段测试</span>
+                </a>
+                
+                <div style="flex:1"></div>
+                <a href="#profile" class="nav-item" data-view="profile" style="color:var(--text-muted); font-size: 0.9rem;">
+                    <span>个人主页</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content" id="main-content">
+            
+            <!-- 视图 1：宏观计划中心 -->
+            <section id="view-macro-plan" class="view active">
+                <div class="macro-layout">
+                    <!-- 左侧：计划卡片区 -->
+                    <div class="macro-main">
+                        <header class="view-header">
+                            <h1>我的学习计划</h1>
+                            <p class="subtitle">选择一个宏观计划进入对应的工作台，或通过右侧助手生成新计划。</p>
+                        </header>
+                        <div class="view-body plans-grid">
+                            <!-- Plan Card 1 -->
+                            <div class="plan-card">
+                                <h3>Python 基础与数据科学</h3>
+                                <div class="progress-wrap">
+                                    <span class="progress-text">进度：45%</span>
+                                    <div class="progress-track"><div class="progress-fill" style="width: 45%;"></div></div>
+                                </div>
+                                <div class="plan-actions">
+                                    <button class="btn btn-outline flex-1">查看计划</button>
+                                    <button class="btn btn-primary flex-1" onclick="window.location.hash='workbench'">进入工作台</button>
+                                </div>
+                            </div>
+                            <!-- Plan Card 2 -->
+                            <div class="plan-card">
+                                <h3>大学英语六级 (CET-6)</h3>
+                                <div class="progress-wrap">
+                                    <span class="progress-text">进度：12%</span>
+                                    <div class="progress-track"><div class="progress-fill" style="width: 12%;"></div></div>
+                                </div>
+                                <div class="plan-actions">
+                                    <button class="btn btn-outline flex-1">查看计划</button>
+                                    <button class="btn btn-primary flex-1" onclick="window.location.hash='workbench'">进入工作台</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧：创建新计划助手 -->
+                    <div class="macro-assistant">
+                        <div class="assistant-header">
+                            <i class="ph-bold ph-sparkle text-primary"></i>
+                            <h3>创建新计划 (AI)</h3>
+                        </div>
+                        <div class="assistant-chat" id="plan-chat-messages">
+                            <div class="message system">
+                                <div class="avatar-ai">AI</div>
+                                <div class="message-bubble system-bubble">
+                                    你想学习什么新内容？告诉我你的目标，或者上传课程大纲/资料，我来定制专属宏观计划。<br><br>
+                                    例如：<br>
+                                    • 我想在3个月内掌握机器学习<br>
+                                    • 帮我规划一份 Agent 开发指南<br><br>
+                                    <button class="btn btn-outline sm" style="margin-top: 12px;"><i class="ph ph-upload-simple"></i> 上传相关资料</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assistant-input">
+                            <div class="input-wrapper">
+                                <input type="text" placeholder="描述你的学习目标或上传文件..." id="plan-chat-input">
+                                <button class="btn-send black-bg" id="plan-btn-send"><i class="ph-bold ph-paper-plane-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视图 2：学习工作台 (无全剧侧边栏, 拥有顶部导航条) -->
+            <section id="view-workbench" class="view">
+                <!-- 顶部导航条 -->
+                <div class="workbench-topbar">
+                    <div class="topbar-left">
+                        <a href="#macro-plan" class="back-link"><i class="ph-bold ph-arrow-left"></i> 返回主页</a>
+                        <span class="divider">|</span>
+                        <h2 class="topbar-title">学习：Pandas Series 基础</h2>
+                    </div>
+                    <div class="topbar-right">
+                        <span class="progress-text-grey">进度：1/4</span>
+                        <button class="btn btn-primary" onclick="window.location.hash='assessment'">进入测试 <i class="ph-bold ph-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div class="workbench-body">
+                    <!-- 左侧阅读区 -->
+                    <div class="content-panel">
+                        <div class="textbook-content">
+                            <h1>1. 什么是 Pandas Series ？</h1>
+                            <p>Pandas Series 是一维带有标签的数组对象，它可以包含任何数据类型（整数、字符串、浮点数、Python对象等）。轴标签统称为索引（index）。可以把 Series 看作是 Excel 表格中的一列。</p>
+                            
+                            <div class="code-block">
+import pandas as pd
+import numpy as np
+
+s = pd.Series([1, 3, 5, np.nan, 6, 8])
+print(s)
+                            </div>
+                            
+                            <h2 class="mt-8">核心属性</h2>
+                            <ul class="custom-list">
+                                <li>values : 获取数组的数值部分</li>
+                                <li>index : 获取数组的索引对象</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧 AI 伴学聊天 -->
+                    <div class="chat-panel">
+                        <div class="chat-header">
+                            <i class="ph-bold ph-robot text-primary"></i> <h3>学习助手</h3>
+                        </div>
+                        <div class="chat-messages" id="study-chat-messages">
+                            <div class="message system">
+                                <div class="avatar-ai">AI</div>
+                                <div class="message-bubble">
+                                    这部分是关于 Series 的基础。你理解什么是索引（index）了吗？
+                                </div>
+                            </div>
+                            <div class="message user">
+                                <div class="avatar-me">Me</div>
+                                <div class="message-bubble user-bubble">是不是就像字典里的 key？</div>
+                            </div>
+                            <div class="message system">
+                                <div class="avatar-ai">AI</div>
+                                <div class="message-bubble">
+                                    完全正确！Series 就像是一个有顺序的字典。你可以用它来快速查找对应的数据。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="assistant-input no-border-top">
+                            <div class="input-wrapper">
+                                <input type="text" placeholder="向 AI 提问..." id="study-chat-input">
+                                <button class="btn-send primary-bg" id="study-btn-send"><i class="ph-bold ph-paper-plane-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视图 3：知识仓库 -->
+            <section id="view-knowledge-base" class="view">
+                <header class="view-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 24px;">
+                    <h1>我的知识仓库</h1>
+                    <p class="subtitle" style="margin-top:8px;">统一管理您的个人学习资料库，支持计划生成和问答伴学。</p>
+                </header>
+                <div class="view-body" style="padding-top:24px;">
+                    <div class="upload-zone" id="upload-zone">
+                        <i class="ph-bold ph-cloud-arrow-up text-primary" style="font-size:32px;"></i>
+                        <h3>点击或将文件拖拽到此处</h3>
+                        <p class="text-muted text-sm mt-2">支持 PDF, MD, TXT (单次最多 10 个)</p>
+                    </div>
+                    
+                    <div class="file-list mt-8">
+                        <div class="file-item ready">
+                            <i class="ph-fill ph-file-pdf file-icon" style="color:var(--error); font-size:24px;"></i>
+                            <div class="file-info">
+                                <h4>Python数据科学手册.pdf</h4>
+                                <span class="text-muted text-sm">32.5 MB · 已建索引</span>
+                            </div>
+                            <button class="btn btn-outline sm">删除</button>
+                        </div>
+                        
+                        <div class="file-item processing" id="demo-uploading-file" style="display:none;">
+                            <i class="ph-fill ph-file-text file-icon" style="color:var(--text-muted); font-size:24px;"></i>
+                            <div class="file-info w-full" style="max-width: 400px;">
+                                <div style="display:flex; justify-content:space-between; margin-bottom: 8px;">
+                                    <h4>统计学习方法笔记.md</h4>
+                                    <span class="text-sm" id="demo-upload-status" style="color:var(--primary-color);">上传中...</span>
+                                </div>
+                                <div class="progress-track"><div class="progress-fill" id="demo-upload-progress" style="width: 10%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视图 4：阶段测试 -->
+            <section id="view-assessment" class="view">
+                <div class="workbench-topbar">
+                    <div class="topbar-left">
+                        <a href="#macro-plan" class="back-link"><i class="ph-bold ph-arrow-left"></i> 退出测试</a>
+                    </div>
+                    <div class="topbar-right">
+                        <span class="progress-text-grey">1 / 5 题</span>
+                    </div>
+                </div>
+                
+                <div class="assessment-body">
+                    <div class="assessment-container">
+                        <h1>在 Pandas 中，以下哪种方式不能用于创建一个 Series 结构？</h1>
+                        
+                        <div class="options-list mt-8" id="q-options">
+                            <label class="option-item">
+                                <div class="radio-box"></div> 
+                                <span>传入一个 Python 列表 (List)</span>
+                            </label>
+                            <label class="option-item">
+                                <div class="radio-box"></div> 
+                                <span>传入一个 Python 字典 (Dictionary)</span>
+                            </label>
+                            <label class="option-item">
+                                <div class="radio-box"></div> 
+                                <span>传入一个 NumPy 数组 (ndarray)</span>
+                            </label>
+                            <label class="option-item">
+                                <div class="radio-box"></div> 
+                                <span>传入一个纯字符串 ("Pandas Data")</span>
+                            </label>
+                        </div>
+                        
+                        <div class="assessment-actions mt-8">
+                            <button class="btn btn-outline" style="border-radius:0;">我不太确定</button>
+                            <button class="btn btn-primary" id="btn-submit-answer" disabled style="border-radius:0; padding-left:32px; padding-right:32px;">提交选项</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 视图 5：个人主页 -->
+            <section id="view-profile" class="view">
+                <header class="view-header" style="border-bottom: 1px solid var(--border-color); padding-bottom: 24px;">
+                    <h1>个人主页</h1>
+                    <p class="subtitle" style="margin-top:8px;">管理您的学习偏好、状态和系统设置</p>
+                </header>
+                <div class="view-body" style="padding-top:32px;">
+                    <div style="display:flex; gap:32px;">
+                        
+                        <!-- 左侧用户信息与数据 -->
+                        <div style="flex: 1; display:flex; flex-direction:column; gap:24px;">
+                            <div class="plan-card" style="display:flex; align-items:center; gap:24px;">
+                                <div class="avatar-me" style="width: 80px; height: 80px; font-size: 1.5rem; border-radius: 50%;">Me</div>
+                                <div>
+                                    <h2 style="font-size: 1.4rem; font-weight: 600;">学习者 (MVP User)</h2>
+                                    <p class="text-muted mt-2">StudyPilot Alpha 测试成员</p>
+                                    <div class="tags mt-4"><span class="tag" style="font-size:0.75rem; padding:2px 8px; border:1px solid var(--border-color); border-radius:4px; display:inline-block;">高级会员</span> <span class="tag" style="font-size:0.75rem; padding:2px 8px; border:1px solid var(--border-color); border-radius:4px; display:inline-block;">已认证</span></div>
+                                </div>
+                            </div>
+                            
+                            <div class="plan-card">
+                                <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 16px;">学习数据统计</h3>
+                                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                                    <div style="background:var(--bg-app); padding: 16px; text-align:center; border: 1px solid var(--border-color);">
+                                        <div style="font-size:2rem; font-weight:700; color:var(--primary-color);">12.5</div>
+                                        <div class="text-sm text-secondary mt-2">累计学习 (小时)</div>
+                                    </div>
+                                    <div style="background:var(--bg-app); padding: 16px; text-align:center; border: 1px solid var(--border-color);">
+                                        <div style="font-size:2rem; font-weight:700; color:var(--primary-color);">42</div>
+                                        <div class="text-sm text-secondary mt-2">测试达成 (次)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 右侧偏好设置 -->
+                        <div style="flex: 2;">
+                            <div class="plan-card">
+                                <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 24px;">默认学习风格偏好</h3>
+                                
+                                <div style="margin-bottom: 24px;">
+                                    <label style="display:block; font-weight:500; margin-bottom:12px;">讲解风格</label>
+                                    <div style="display:flex; gap:16px;">
+                                        <label class="option-item flex-1 selected" style="padding:12px 16px;">
+                                            <div class="radio-box" style="border-width: 5px; border-color: var(--primary-color);"></div> 
+                                            <span>通俗易懂（多比喻与案例）</span>
+                                        </label>
+                                        <label class="option-item flex-1" style="padding:12px 16px;">
+                                            <div class="radio-box"></div> 
+                                            <span>严谨专业（多公式与推导）</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 24px;">
+                                    <label style="display:block; font-weight:500; margin-bottom:12px;">难度偏好</label>
+                                    <div style="display:flex; gap:16px;">
+                                        <label class="option-item flex-1" style="padding:12px 16px;">
+                                            <div class="radio-box"></div> 
+                                            <span>平缓上升</span>
+                                        </label>
+                                        <label class="option-item flex-1 selected" style="padding:12px 16px;">
+                                            <div class="radio-box" style="border-width: 5px; border-color: var(--primary-color);"></div> 
+                                            <span>适中（默认）</span>
+                                        </label>
+                                        <label class="option-item flex-1" style="padding:12px 16px;">
+                                            <div class="radio-box"></div> 
+                                            <span>陡峭挑战</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <hr style="border:0; border-top:1px solid var(--border-color); margin: 32px 0;">
+                                
+                                <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 24px;">系统设置</h3>
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 16px; padding: 12px 0; border-bottom: 1px solid var(--border-color);">
+                                    <div>
+                                        <h4 style="font-weight:500;">每日目标更新提醒</h4>
+                                        <p class="text-sm text-secondary mt-2">通过站内信接收学习计划状态推送</p>
+                                    </div>
+                                    <div style="width: 44px; height: 24px; background:var(--primary-color); border-radius:12px; position:relative; cursor:pointer;">
+                                        <div style="width: 20px; height: 20px; background:white; border-radius:50%; position:absolute; top:2px; right:2px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);"></div>
+                                    </div>
+                                </div>
+                                
+                                <div style="display:flex; justify-content:space-between; align-items:center; padding: 12px 0;">
+                                    <div>
+                                        <h4 style="font-weight:500;">清除本地数据</h4>
+                                        <p class="text-sm text-secondary mt-2">清空所有对话记录和本地缓存计划</p>
+                                    </div>
+                                    <button class="btn btn-outline text-error" style="color:var(--error); border-color:var(--error);">清除数据</button>
+                                </div>
+
+                                <div class="mt-8" style="text-align: right;">
+                                    <button class="btn btn-primary" onclick="alert('设置已保存')">保存修改</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
