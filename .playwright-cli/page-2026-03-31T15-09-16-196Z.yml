@@ -1,0 +1,113 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: "阶段: checkpoint_test"
+          - paragraph [ref=e44]: Checkpoint assessment generated. Submit answers to continue.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: Assessments
+            - heading "阶段测试" [level=2] [ref=e23]
+            - paragraph [ref=e24]: 测试页支持生成 checkpoint 测试、恢复待答题内容、提交答案并查看评分结果。
+          - generic [ref=e25]:
+            - button "生成 checkpoint 测试" [ref=e57] [cursor=pointer]
+            - link "返回工作台" [ref=e27] [cursor=pointer]:
+              - /url: /workbench
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - heading "当前测试" [level=2] [ref=e31]
+            - generic [ref=e58]:
+              - generic [ref=e59]:
+                - paragraph [ref=e60]: 测试状态
+                - paragraph [ref=e61]: "ID: 52f3cca4-62cb-4035-8293-c8db739a2a05"
+                - paragraph [ref=e62]: "Scope: Probability Foundations"
+                - paragraph [ref=e63]: "Status: generated"
+                - paragraph [ref=e64]: "Difficulty: beginner"
+              - article [ref=e65]:
+                - paragraph [ref=e66]: Question 1
+                - heading "What is the primary purpose of probability in quantitative analysis?" [level=3] [ref=e67]
+                - generic [ref=e68]:
+                  - generic [ref=e69] [cursor=pointer]:
+                    - radio "To eliminate all uncertainty from predictions" [ref=e70]
+                    - generic [ref=e71]: To eliminate all uncertainty from predictions
+                  - generic [ref=e72] [cursor=pointer]:
+                    - radio "To measure and quantify uncertainty" [ref=e73]
+                    - generic [ref=e74]: To measure and quantify uncertainty
+                  - generic [ref=e75] [cursor=pointer]:
+                    - radio "To prove that random events are actually deterministic" [ref=e76]
+                    - generic [ref=e77]: To prove that random events are actually deterministic
+                  - generic [ref=e78] [cursor=pointer]:
+                    - radio "To replace the need for data collection" [ref=e79]
+                    - generic [ref=e80]: To replace the need for data collection
+                - generic [ref=e81]:
+                  - checkbox "我不确定这题" [ref=e82]
+                  - text: 我不确定这题
+              - article [ref=e83]:
+                - paragraph [ref=e84]: Question 2
+                - heading "A probability of 0 indicates that an event is certain to occur." [level=3] [ref=e85]
+                - textbox "请输入你的简短回答" [ref=e86]
+                - generic [ref=e87]:
+                  - checkbox "我不确定这题" [ref=e88]
+                  - text: 我不确定这题
+              - article [ref=e89]:
+                - paragraph [ref=e90]: Question 3
+                - heading "Explain how Bayes theorem relates to probability and belief updating." [level=3] [ref=e91]
+                - textbox "请输入你的简短回答" [ref=e92]
+                - generic [ref=e93]:
+                  - checkbox "我不确定这题" [ref=e94]
+                  - text: 我不确定这题
+              - article [ref=e95]:
+                - paragraph [ref=e96]: Question 4
+                - heading "Which of the following are valid probability values? Select all that apply." [level=3] [ref=e97]
+                - textbox "请输入你的简短回答" [ref=e98]
+                - generic [ref=e99]:
+                  - checkbox "我不确定这题" [ref=e100]
+                  - text: 我不确定这题
+              - article [ref=e101]:
+                - paragraph [ref=e102]: Question 5
+                - heading "If P(A) = 0.3 and P(B) = 0.4, what is the maximum possible value of P(A or B) assuming basic probability rules?" [level=3] [ref=e103]
+                - generic [ref=e104]:
+                  - generic [ref=e105] [cursor=pointer]:
+                    - radio "0.7" [ref=e106]
+                    - generic [ref=e107]: "0.7"
+                  - generic [ref=e108] [cursor=pointer]:
+                    - radio "0.12" [ref=e109]
+                    - generic [ref=e110]: "0.12"
+                  - generic [ref=e111] [cursor=pointer]:
+                    - radio "0.5" [ref=e112]
+                    - generic [ref=e113]: "0.5"
+                  - generic [ref=e114] [cursor=pointer]:
+                    - radio "1.0" [ref=e115]
+                    - generic [ref=e116]: "1.0"
+                - generic [ref=e117]:
+                  - checkbox "我不确定这题" [ref=e118]
+                  - text: 我不确定这题
+              - generic [ref=e119]:
+                - button "提交答案" [disabled] [ref=e120]
+                - paragraph [ref=e121]: 请为每道题填写答案，或显式勾选“我不确定”。
+          - generic [ref=e37]:
+            - heading "评分结果" [level=2] [ref=e39]
+            - paragraph [ref=e41]: 当前还没有评分结果。提交一次测试答案后，这里会展示反馈、得分和建议。
+  - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
+    - img [ref=e52]
+  - alert [ref=e55]

@@ -1,0 +1,54 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e52]:
+          - paragraph [ref=e53]: "阶段: learning"
+          - paragraph [ref=e54]: Continue learning within Probability Foundations.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - paragraph [ref=e21]: StudyPilot
+          - heading "阶段三纵向联调入口" [level=2] [ref=e22]
+          - paragraph [ref=e23]: 首页持续读取真实 workflow、profile 和 current plan，用于串联阶段三的整条学习闭环。
+          - generic [ref=e24]:
+            - link "继续当前学习" [ref=e55] [cursor=pointer]:
+              - /url: /workbench
+            - link "管理知识仓库" [ref=e26] [cursor=pointer]:
+              - /url: /knowledge
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - heading "当前工作流" [level=2] [ref=e30]
+            - generic [ref=e56]:
+              - paragraph [ref=e57]: learning
+              - paragraph [ref=e58]: Continue learning within Probability Foundations.
+          - generic [ref=e36]:
+            - heading "建档状态" [level=2] [ref=e38]
+            - generic [ref=e59]:
+              - paragraph [ref=e60]: Probability basics
+              - paragraph [ref=e61]: Understand probability and Bayes theorem
+          - generic [ref=e44]:
+            - heading "计划状态" [level=2] [ref=e46]
+            - generic [ref=e62]:
+              - paragraph [ref=e63]: Probability & Bayes Theorem Mastery
+              - paragraph [ref=e64]: Probability Foundations
+  - button "Open Next.js Dev Tools" [ref=e70] [cursor=pointer]:
+    - img [ref=e71]
+  - alert [ref=e74]

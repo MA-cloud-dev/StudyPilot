@@ -1,0 +1,21 @@
+{
+  "name": "studypilot",
+  "private": true,
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "contracts:export": "python apps/api/scripts/export_openapi.py",
+    "contracts:generate:web": "npm --prefix apps/web run generate:api",
+    "contracts:sync": "npm run contracts:export && npm run contracts:generate:web",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build:web": "npm --prefix apps/web run build",
+    "test:web": "npm --prefix apps/web run test",
+    "typecheck:web": "npm --prefix apps/web run typecheck",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "openapi-typescript": "^7.6.1"
+  }
+}

@@ -1,0 +1,93 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e41]:
+          - paragraph [ref=e42]: "阶段: learning"
+          - paragraph [ref=e43]: Continue learning within Probability Foundations.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: Workbench
+            - heading "学习工作台" [level=2] [ref=e23]
+            - paragraph [ref=e24]: "当前阶段由后端 `workflow` 决定，工作台只负责启动学习、记录一轮提问并提交完成信号。"
+          - generic [ref=e44]:
+            - paragraph [ref=e45]: "阶段: learning"
+            - paragraph [ref=e46]: Continue learning within Probability Foundations.
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]:
+              - heading "当前学习内容" [level=2] [ref=e30]
+              - generic [ref=e47]: 预计 22 分钟
+            - generic [ref=e48]:
+              - generic [ref=e33]:
+                - paragraph [ref=e49]: Probability Foundations
+                - paragraph [ref=e50]: 当前工作流会围绕这份微观计划生成学习内容和 checkpoint 测试。
+              - generic [ref=e34]:
+                - paragraph [ref=e51]: Topics
+                - generic [ref=e52]:
+                  - generic [ref=e53]: Probability as uncertainty measurement
+                  - generic [ref=e54]: Basic probability rules
+                  - generic [ref=e55]: Interpreting probability values
+              - generic [ref=e35]:
+                - paragraph [ref=e56]: Tasks
+                - list [ref=e57]:
+                  - listitem [ref=e58]:
+                    - paragraph [ref=e59]: Review probability definition from knowledge asset
+                    - paragraph [ref=e60]: pending
+                  - listitem [ref=e61]:
+                    - paragraph [ref=e62]: Complete guided probability concept check
+                    - paragraph [ref=e63]: pending
+                  - listitem [ref=e64]:
+                    - paragraph [ref=e65]: Practice single-choice probability fundamentals questions
+                    - paragraph [ref=e66]: pending
+                  - listitem [ref=e67]:
+                    - paragraph [ref=e68]: Draft short answer explanation of probability in own words
+                    - paragraph [ref=e69]: pending
+              - generic [ref=e70]:
+                - paragraph [ref=e71]: Completion Criteria
+                - list [ref=e72]:
+                  - listitem [ref=e73]: Can define probability as uncertainty measurement
+                  - listitem [ref=e74]: Correctly answers 2/3 probability fundamentals questions
+                  - listitem [ref=e75]: Provides coherent short answer explanation
+              - generic [ref=e76]:
+                - button "重新开始本次学习" [ref=e90] [cursor=pointer]
+                - button "完成学习并进入测试" [ref=e78] [cursor=pointer]
+                - link "前往测试页" [ref=e79] [cursor=pointer]:
+                  - /url: /assessments
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - heading "学习助手对话" [level=2] [ref=e38]
+              - generic [ref=e91]: session ready
+            - generic [ref=e92]:
+              - generic [ref=e93]:
+                - paragraph [ref=e94]: 当前摘要
+                - paragraph [ref=e95]: Learning session started for Probability Foundations.
+                - generic [ref=e97]: session_started
+              - generic [ref=e98]:
+                - generic [ref=e99]: Let's work through Probability Foundations together.
+                - generic [ref=e103]: 请用更通俗的方式解释贝叶斯定理。
+              - generic [ref=e100]:
+                - textbox "例如：请用更通俗的方式解释这个主题。" [ref=e101]
+                - button "发送中..." [disabled] [ref=e104]
+  - button "Open Next.js Dev Tools" [ref=e85] [cursor=pointer]:
+    - img [ref=e86]
+  - alert [ref=e89]

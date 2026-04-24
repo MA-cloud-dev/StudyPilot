@@ -1,0 +1,36 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - paragraph [ref=e5]: StudyPilot
+    - heading "Phase 3 Workspace" [level=1] [ref=e6]
+    - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+    - generic [ref=e8]:
+      - paragraph [ref=e9]: Workflow
+      - paragraph [ref=e10]: 加载当前阶段中...
+    - navigation "Main navigation" [ref=e11]:
+      - link "首页" [ref=e12] [cursor=pointer]:
+        - /url: /
+      - link "计划中心" [ref=e13] [cursor=pointer]:
+        - /url: /plans
+      - link "学习工作台" [ref=e14] [cursor=pointer]:
+        - /url: /workbench
+      - link "知识仓库" [ref=e15] [cursor=pointer]:
+        - /url: /knowledge
+      - link "阶段测试" [ref=e16] [cursor=pointer]:
+        - /url: /assessments
+      - link "个人主页" [ref=e17] [cursor=pointer]:
+        - /url: /profile
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - paragraph [ref=e22]: Workbench
+          - heading "学习工作台" [level=2] [ref=e23]
+          - paragraph [ref=e24]: "当前阶段由后端 `workflow` 决定，工作台只负责启动学习、记录一轮提问并提交完成信号。"
+        - paragraph [ref=e26]: 加载工作流状态中...
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - heading "当前学习内容" [level=2] [ref=e30]
+          - generic "loading" [ref=e32]
+        - generic [ref=e36]:
+          - heading "学习助手对话" [level=2] [ref=e38]
+          - paragraph [ref=e40]: 先启动学习会话，再向学习助手发送一轮问题。

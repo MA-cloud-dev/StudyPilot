@@ -6,6 +6,25 @@
 
 本文档回答的核心问题不是“系统要做什么”，而是“为什么用这套技术来实现它”。业务需求请参考 `requirement.md`，系统规格请参考 `spec.md`。
 
+### 1.1 当前仓库同步状态
+
+- 同步日期: `2026-03-31`
+- 当前仓库已经按本文件推荐路线落地阶段 1 后端内核最小闭环，并完成阶段 2 前端正式工程对接与阶段 3 纵向联调验收:
+  - 前端: Next.js App Router + React + TypeScript + Tailwind CSS + TanStack Query
+  - 后端: FastAPI + Pydantic Settings + SQLAlchemy 2 + Alembic
+  - 契约: 由后端导出 `OpenAPI`，前端生成类型消费
+  - 部署骨架: 提供 `docker-compose.yml` 与 Dockerfile
+  - 后端内核: 已接入 `LangGraph`、`OpenAI-compatible Adapter` 边界、`pypdf` 解析和最小混合检索
+  - 前端正式页: 已完成首页、profile、knowledge、plans、workbench、assessments 的真实接口接线
+  - 阶段 3 验收: 已新增 Playwright 浏览器 E2E，覆盖高分通过与低分回退两条纵向联调链路
+- 当前实现与本文件的差异/说明:
+  - 本地实际开发环境当前使用 `Python 3.10` 完成阶段 1，规格推荐目标仍为 `Python 3.12`
+  - 生产/主目标数据库仍为 `PostgreSQL`，但阶段 0 自动化测试同时使用临时 `SQLite` 执行迁移与接口验证
+  - 当前默认运行模式仍使用 fake provider，以保证本地测试与 CI 稳定；真实外部模型通过配置切换
+  - `pgvector` 仍是生产目标方案，但当前仓库为兼容 SQLite 测试，embedding 先以 JSON 数组持久化
+  - 仓库已提供 Docker 配置，但当前一次实现环境中未安装 Docker CLI，因此未完成实际 `docker compose up` 验证
+  - 当前前端采用页面局部状态保存学习会话与测试作答过程；学习会话尚未做刷新恢复
+
 ## 2. 选型原则
 
 StudyPilot V1 的技术选型遵循以下原则:
@@ -94,6 +113,11 @@ StudyPilot 的前端核心状态大多来自服务端，例如:
 - 处理计划生成、测试提交等 mutation
 - 处理资料上传后的轮询、状态刷新和错误恢复
 
+当前实现补充:
+
+- 已统一 query key、错误归一化与 mutation 成功后的显式失效刷新
+- 测试详情读取已补齐，可通过 `assessment_id` 在刷新后恢复待答题题面
+
 ## 4.3 为什么不继续使用纯静态原型
 
 当前 `FrontendDesign` 更适合作为交互原型和视觉参考，而不是正式工程基础。原因包括:
@@ -123,6 +147,11 @@ Vue/Nuxt 并不是错误方案，但当前不优先推荐，原因是:
 - `Pydantic v2`
 - `SQLAlchemy 2`
 - `Alembic`
+
+当前实现补充:
+
+- 已新增 `langgraph`、`openai`、`pypdf`
+- 已实现 `LLMProviderAdapter`、`RetrievalProvider`、解析/切片/评分服务边界
 
 ## 5.2 为什么选择 Python
 
@@ -200,6 +229,11 @@ Spring Boot 的强项在成熟企业后端体系、组织协作和重型平台�
 - `jsonb`
 - `pgvector`
 
+当前实现补充:
+
+- 为兼容自动化测试，当前 `KnowledgeChunk.embedding` 先以 JSON 数组落库
+- 后续切换到 PostgreSQL 生产环境时，再进一步映射到 `pgvector`
+
 ## 6.2 为什么选择 PostgreSQL，而不是 MySQL
 
 StudyPilot 的数据不是单纯的用户表、订单表、关系表，而包含大量半结构化和 AI 相关数据，例如:
@@ -252,6 +286,11 @@ MySQL 当然可以承载常规业务数据，但在 StudyPilot 里它不是最�
 
 - `LangGraph` 作为主编排层
 - `LangChain` 按需作为组件层使用
+
+当前实现补充:
+
+- 已落地最小 `supervisor -> specialist` 图结构
+- 当前由代码控制阶段切换，节点内内容生成与评分通过 provider 调用
 
 ## 7.2 为什么选择 LangGraph，而不是把 LangChain 作为主框架
 
@@ -390,6 +429,11 @@ V1 建议:
 - 先让轻量任务由应用服务直接处理
 - 将文档解析、切片、embedding、长耗时测试生成纳入后台任务
 - 等吞吐量上来后，再引入更完整的队列和 worker 体系
+
+当前实现补充:
+
+- 阶段 1 仍采用同步执行
+- 服务边界已经拆出，便于后续迁移到异步任务
 
 ## 9.4 部署方式
 

@@ -14,6 +14,41 @@
 - 知识仓库: 本地上传为主
 - Agent 架构: `supervisor_agent` 自动调度 `plan_agent`、`input_agent`、`output_agent`
 
+### 1.2 当前仓库同步状态
+
+- 同步日期: `2026-03-31`
+- 本文档中的系统设计已完成**阶段 1 后端内核最小闭环**、**阶段 2 前端正式工程对接**与**阶段 3 纵向联调闭环**，当前仓库已存在正式前后端目录、OpenAPI 契约快照、数据库迁移和真实服务化 API。
+- 当前实现以 **OpenAPI 契约** 为唯一事实源，实际契约文件位于 `packages/contracts/openapi.json`。
+- 当前实现已经落地的接口分组:
+  - `/api/profile`
+  - `/api/knowledge`
+  - `/api/plans`
+  - `/api/learning/session`
+  - `/api/assessments`
+  - `/api/workflow`
+- 当前实现已经落地的阶段 2 能力:
+  - 首页已按 `workflow + profile + current plan` 展示下一步动作入口
+  - `/profile` 已支持最小建档与更新
+  - `/knowledge` 已支持上传、列表、删除与失败重试
+  - `/plans` 已支持基于档案与 ready 资料生成当前计划
+  - `/workbench` 已支持启动学习、发送问题、提交完成信号
+  - `/assessments` 已支持生成测试、恢复题面、提交答案与展示评分结果
+- 当前实现已经落地的阶段 3 能力:
+  - 已新增 happy path / fallback path 浏览器 E2E，覆盖阶段三固定业务切片
+  - 已补齐 workflow 历史、`recent_assessment_id` 与当前计划指针的一致性自动化断言
+  - 当前测试页已验证在刷新后恢复待答题题面，并在提交后恢复评分结果
+- 当前实现已经落地的阶段 1 能力:
+  - 已接入 `supervisor -> plan_agent / input_agent / output_agent` 的最小工作流编排
+  - 已接入 `LLMProviderAdapter`、`RetrievalProvider`、`KnowledgeParser`、`ChunkingService`、`ScoringService`
+  - 已实现 `.md`、`.txt`、文本型 `.pdf` 的真实解析、切片、索引和混合检索
+  - 已实现测试评分、工作流回退与 `AgentTask` / `AgentDecision` 审计记录
+- 当前实现仍保留的阶段性限制:
+  - 默认启用 fake provider，真实外部 LLM 作为可切换能力而非默认路径
+  - 文件处理仍为同步执行，未接入后台异步 worker
+  - 学习接口仍为普通请求响应，尚未扩展为流式会话接口
+  - 学习会话当前不支持刷新恢复，刷新后会重新发起新会话
+- 当前代码契约统一采用 `snake_case` 字段命名；如本文中存在概念性 camelCase 写法，应以 OpenAPI 实际字段为准
+
 ### 1.1 技术栈总览
 
 V1 推荐采用以下技术组合:
@@ -253,7 +288,7 @@ stateDiagram-v2
 - `status` 生命周期：`uploading → parsing → indexing → ready`，失败分支 `→ parse_failed`。
 - `parseErrorReason` 枚举值：`UNSUPPORTED_FORMAT`、`FILE_CORRUPTED`、`EMPTY_CONTENT`。
 - `retryCount` 达到上限（1）后不再自动重试，但允许用户手动触发。
-- `chunks` 为切片数组，每个切片存储原始文本片段及其向量 Embedding ID，用于检索增强。
+- `chunks` 为对外返回的切片摘要；当前实现内部已使用独立 `knowledge_chunks` 持久化表保存切片内容、embedding 和元数据。
 - 支持软删除：`deletedAt` 不为 null 时，Agent 检索跳过该资料，历史引用标记为 `[已删除]`。
 
 ## 5.3 MacroPlan
@@ -581,6 +616,12 @@ V1 接口以后端 REST API 为主，后续可再增加流式会话接口。
 
 ## 8.4 测试接口
 
+### `GET /api/assessments/{assessmentId}`
+
+用途:
+
+- 获取已生成测试的题面详情，支持前端刷新后恢复待答题内容
+
 ### `POST /api/assessments/generate`
 
 用途:
@@ -659,6 +700,7 @@ V1 采用**混合检索**策略，兼顾语义相关性和关键词精准度：
 - **关键词检索（辅）**: 对主题词、术语等高频词进行精确匹配补充召回。
 - **检索结果合并**: 对两路结果进行去重和相关度加权排序，取 Top-K 片段组装上下文。
 - **Top-K 范围**: V1 默认 K=5，可根据 Agent 任务类型（计划生成/内容生成/出题）动态调整。
+- 当前实现默认使用 fake embedding 保证测试稳定；生产环境可切换为真实 embedding provider。
 - 检索模型实现细节（向量模型选型、索引方案）在规格阶段不锁定，由工程实现决定。
 
 ## 9.4 资料组织与计划关联
@@ -695,6 +737,7 @@ V1 可先支持以下题型:
 - 客观题使用规则判分。
 - 主观题使用 LLM 评分加结构化评语输出。
 - 评分结果必须包含得分、错因、知识点映射和建议补学方向。
+- 当前阶段 1 已实现“客观题规则判分 + 主观题 provider 评分”的最小可用版本。
 
 ## 10.3 难度控制
 
@@ -708,6 +751,7 @@ V1 可先支持以下题型:
 
 - `UserProfile`
 - `KnowledgeAsset`
+- `KnowledgeChunk`
 - `MacroPlan`
 - `MicroPlan`
 - `LearningSession`

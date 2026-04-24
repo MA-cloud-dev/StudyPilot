@@ -1,0 +1,142 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e76]:
+          - paragraph [ref=e77]: "阶段: learning"
+          - paragraph [ref=e78]: Plan generated and learning can start now.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - paragraph [ref=e21]: Plans
+          - heading "计划中心" [level=2] [ref=e22]
+          - paragraph [ref=e23]: 计划中心同时承载当前周期的只读展示和新计划生成入口，所有字段都直接来自后端契约。
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - generic [ref=e27]:
+                - heading "当前宏观计划" [level=2] [ref=e28]
+                - link "进入工作台" [ref=e79] [cursor=pointer]:
+                  - /url: /workbench
+              - generic [ref=e80]:
+                - generic [ref=e31]:
+                  - paragraph [ref=e81]: Title
+                  - paragraph [ref=e82]: Probability & Bayes Theorem Mastery
+                - paragraph [ref=e83]: Understand probability and Bayes theorem
+                - generic [ref=e33]:
+                  - generic [ref=e84]:
+                    - paragraph [ref=e85]: Duration
+                    - paragraph [ref=e86]: 45 minutes
+                  - generic [ref=e87]:
+                    - paragraph [ref=e88]: Status
+                    - paragraph [ref=e89]: active
+                - generic [ref=e90]:
+                  - paragraph [ref=e91]: Milestones
+                  - list [ref=e92]:
+                    - listitem [ref=e129]:
+                      - paragraph [ref=e130]: Grasp Probability Fundamentals
+                      - paragraph [ref=e131]: Explain basic probability concepts and calculate simple probabilities
+                    - listitem [ref=e132]:
+                      - paragraph [ref=e133]: Master Bayes Theorem
+                      - paragraph [ref=e134]: Apply Bayes theorem to update beliefs given evidence
+            - generic [ref=e34]:
+              - heading "当前微观计划" [level=2] [ref=e36]
+              - generic [ref=e99]:
+                - generic [ref=e39]:
+                  - paragraph [ref=e100]: Probability Foundations
+                  - paragraph [ref=e101]: "预计时长: 22 分钟"
+                - generic [ref=e40]:
+                  - paragraph [ref=e102]: Topics
+                  - generic [ref=e103]:
+                    - generic [ref=e135]: Probability as uncertainty measure
+                    - generic [ref=e136]: Events and sample spaces
+                    - generic [ref=e105]: Basic probability rules
+                    - generic [ref=e137]: Conditional probability introduction
+                - generic [ref=e41]:
+                  - paragraph [ref=e107]: Completion Criteria
+                  - list [ref=e108]:
+                    - listitem [ref=e138]: Can explain what probability measures
+                    - listitem [ref=e139]: Can identify events and outcomes in scenarios
+                    - listitem [ref=e140]: Can calculate simple probabilities
+                    - listitem [ref=e141]: Understands link between probability and Bayes theorem
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - heading "生成当前计划" [level=3] [ref=e44]
+              - paragraph [ref=e45]: 默认从档案预填目标和偏好，ready 状态资料会作为计划生成上下文参与检索。
+            - generic [ref=e46]:
+              - generic [ref=e47]:
+                - text: 学习目标
+                - textbox "学习目标" [ref=e48]: Understand probability and Bayes theorem
+              - generic [ref=e49]:
+                - generic [ref=e50]:
+                  - text: 当前基础
+                  - combobox "当前基础" [ref=e51]:
+                    - option "beginner" [selected]
+                    - option "intermediate"
+                    - option "advanced"
+                - generic [ref=e52]:
+                  - text: 讲解风格
+                  - combobox "讲解风格" [ref=e53]:
+                    - option "practical" [selected]
+                    - option "rigorous"
+                    - option "visual"
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - text: 时间预算
+                  - spinbutton "时间预算" [ref=e56]: "45"
+                - generic [ref=e57]:
+                  - text: 单位
+                  - combobox "单位" [ref=e58]:
+                    - option "day" [selected]
+                    - option "week"
+                    - option "session"
+                - generic [ref=e59]:
+                  - text: 难度
+                  - combobox "难度" [ref=e60]:
+                    - option "easy"
+                    - option "medium" [selected]
+                    - option "hard"
+              - group "题型偏好" [ref=e61]:
+                - generic [ref=e62]: 题型偏好
+                - generic [ref=e63]:
+                  - generic [ref=e64] [cursor=pointer]:
+                    - checkbox "single_choice" [checked] [ref=e65]
+                    - text: single_choice
+                  - generic [ref=e66] [cursor=pointer]:
+                    - checkbox "multiple_choice" [ref=e67]
+                    - text: multiple_choice
+                  - generic [ref=e68] [cursor=pointer]:
+                    - checkbox "short_answer" [checked] [ref=e69]
+                    - text: short_answer
+              - group "参与计划生成的 ready 资料" [ref=e70]:
+                - generic [ref=e71]: 参与计划生成的 ready 资料
+                - generic [ref=e113]:
+                  - checkbox "Probability Notes .txt" [ref=e114]
+                  - generic [ref=e115]:
+                    - paragraph [ref=e116]: Probability Notes
+                    - paragraph [ref=e117]: .txt
+              - paragraph [ref=e142]: 当前计划已生成，可以直接进入学习工作台。
+              - generic [ref=e73]:
+                - button "生成计划" [ref=e143] [cursor=pointer]
+                - link "进入工作台" [ref=e75] [cursor=pointer]:
+                  - /url: /workbench
+  - button "Open Next.js Dev Tools" [ref=e123] [cursor=pointer]:
+    - img [ref=e124]
+  - alert [ref=e127]

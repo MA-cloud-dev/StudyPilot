@@ -1,0 +1,109 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e27]:
+          - paragraph [ref=e28]: "阶段: checkpoint_test"
+          - paragraph [ref=e29]: Checkpoint assessment generated. Submit answers to continue.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Profile
+          - heading "最小建档入口" [level=2] [ref=e33]
+          - paragraph [ref=e34]: 先完成学习目标、基础与偏好设置，后续计划生成会直接读取这份真实档案。
+        - generic [ref=e35]:
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - generic [ref=e38]:
+                - heading "更新学习者档案" [level=3] [ref=e39]
+                - paragraph [ref=e40]: 你可以随时调整偏好，计划中心会读取最新档案。
+              - generic [ref=e41]: ready
+            - generic [ref=e42]:
+              - generic [ref=e43]:
+                - text: 学习目标
+                - textbox "学习目标" [ref=e44]:
+                  - /placeholder: 例如：8 周内打好概率论基础，并完成一次 checkpoint 测试。
+                  - text: Understand probability and Bayes theorem
+              - generic [ref=e45]:
+                - generic [ref=e46]:
+                  - text: 学科范围
+                  - textbox "学科范围" [ref=e47]:
+                    - /placeholder: 例如：math / databases / english
+                    - text: Probability basics
+                - generic [ref=e48]:
+                  - text: 当前基础
+                  - combobox "当前基础" [ref=e49]:
+                    - option "beginner" [selected]
+                    - option "intermediate"
+                    - option "advanced"
+              - generic [ref=e50]:
+                - generic [ref=e51]:
+                  - text: 时间预算
+                  - spinbutton "时间预算" [ref=e52]: "45"
+                - generic [ref=e53]:
+                  - text: 单位
+                  - combobox "单位" [ref=e54]:
+                    - option "day" [selected]
+                    - option "week"
+                    - option "session"
+              - generic [ref=e55]:
+                - generic [ref=e56]:
+                  - text: 讲解风格
+                  - combobox "讲解风格" [ref=e57]:
+                    - option "practical" [selected]
+                    - option "rigorous"
+                    - option "visual"
+                - generic [ref=e58]:
+                  - text: 难度偏好
+                  - combobox "难度偏好" [ref=e59]:
+                    - option "easy"
+                    - option "medium" [selected]
+                    - option "hard"
+              - group "题型偏好" [ref=e60]:
+                - generic [ref=e61]: 题型偏好
+                - generic [ref=e62]:
+                  - generic [ref=e63] [cursor=pointer]:
+                    - checkbox "单选题" [checked] [ref=e64]
+                    - text: 单选题
+                  - generic [ref=e65] [cursor=pointer]:
+                    - checkbox "多选题" [ref=e66]
+                    - text: 多选题
+                  - generic [ref=e67] [cursor=pointer]:
+                    - checkbox "简答题" [checked] [ref=e68]
+                    - text: 简答题
+              - generic [ref=e69]:
+                - text: 行为摘要
+                - textbox "行为摘要" [ref=e70]:
+                  - /placeholder: 可选。记录你当前的学习节奏、常见问题或偏好。
+              - generic [ref=e71]:
+                - button "保存档案" [ref=e72] [cursor=pointer]
+                - link "前往计划中心" [ref=e73] [cursor=pointer]:
+                  - /url: /plans
+          - generic [ref=e74]:
+            - heading "当前建档说明" [level=2] [ref=e76]
+            - generic [ref=e78]:
+              - paragraph [ref=e79]: "第二阶段把 `/profile` 作为真实的 onboarding 入口，计划生成会直接读取这里的目标、时间预算和偏好。"
+              - paragraph [ref=e80]: 如果你还没有上传资料，也可以先建档，后续在知识仓库页补资料后再生成计划。
+              - generic [ref=e81]:
+                - paragraph [ref=e82]: 下一步建议
+                - paragraph [ref=e83]: 档案已存在，建议先去知识仓库上传资料，再到计划中心生成当前周期计划。
+  - button "Open Next.js Dev Tools" [ref=e89] [cursor=pointer]:
+    - img [ref=e90]
+  - alert [ref=e93]

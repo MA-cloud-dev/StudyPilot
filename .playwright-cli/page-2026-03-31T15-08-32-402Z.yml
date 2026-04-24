@@ -1,0 +1,45 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: "阶段: learning"
+          - paragraph [ref=e44]: Continue learning within Probability Foundations.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - paragraph [ref=e22]: Assessments
+            - heading "阶段测试" [level=2] [ref=e23]
+            - paragraph [ref=e24]: 测试页支持生成 checkpoint 测试、恢复待答题内容、提交答案并查看评分结果。
+          - generic [ref=e25]:
+            - button "生成 checkpoint 测试" [ref=e26] [cursor=pointer]
+            - link "返回工作台" [ref=e27] [cursor=pointer]:
+              - /url: /workbench
+        - generic [ref=e28]:
+          - generic [ref=e29]:
+            - heading "当前测试" [level=2] [ref=e31]
+            - paragraph [ref=e45]: 当前还没有 recent assessment。完成学习后可以先生成一次 checkpoint 测试。
+          - generic [ref=e37]:
+            - heading "评分结果" [level=2] [ref=e39]
+            - paragraph [ref=e41]: 当前还没有评分结果。提交一次测试答案后，这里会展示反馈、得分和建议。
+  - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
+    - img [ref=e52]
+  - alert [ref=e55]

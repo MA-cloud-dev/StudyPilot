@@ -1,0 +1,66 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - paragraph [ref=e5]: StudyPilot
+      - heading "Phase 3 Workspace" [level=1] [ref=e6]
+      - paragraph [ref=e7]: 当前工作区用于验证真实前后端契约下的纵向联调闭环。
+      - generic [ref=e8]:
+        - paragraph [ref=e9]: Workflow
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: "阶段: learning"
+          - paragraph [ref=e51]: Continue learning within Probability Foundations.
+      - navigation "Main navigation" [ref=e11]:
+        - link "首页" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - link "计划中心" [ref=e13] [cursor=pointer]:
+          - /url: /plans
+        - link "学习工作台" [ref=e14] [cursor=pointer]:
+          - /url: /workbench
+        - link "知识仓库" [ref=e15] [cursor=pointer]:
+          - /url: /knowledge
+        - link "阶段测试" [ref=e16] [cursor=pointer]:
+          - /url: /assessments
+        - link "个人主页" [ref=e17] [cursor=pointer]:
+          - /url: /profile
+    - main [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e20]:
+          - paragraph [ref=e21]: Knowledge
+          - heading "知识仓库" [level=2] [ref=e22]
+          - paragraph [ref=e23]: 上传学习资料后，计划生成和学习答疑会优先利用 ready 状态的知识内容。
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - generic [ref=e26]:
+              - heading "上传资料" [level=3] [ref=e27]
+              - paragraph [ref=e28]: 支持一次上传多个文件，失败资料可在右侧列表直接重试。
+            - generic [ref=e29]:
+              - generic [ref=e30] [cursor=pointer]:
+                - generic [ref=e31]: 点击选择资料文件
+                - generic [ref=e32]: "建议上传 `.md`、`.txt`、文本型 `.pdf`。"
+                - generic [ref=e33]: waiting for files
+              - 'button "点击选择资料文件 建议上传 `.md`、`.txt`、文本型 `.pdf`。 waiting for files" [ref=e34]'
+              - generic [ref=e35]:
+                - text: 统一标题（可选）
+                - textbox "统一标题（可选）" [ref=e36]:
+                  - /placeholder: 例如：概率论课堂笔记
+              - generic [ref=e37]:
+                - text: 标签（逗号分隔，可选）
+                - textbox "标签（逗号分隔，可选）" [ref=e38]:
+                  - /placeholder: 例如：probability, week1, textbook
+              - button "上传资料" [disabled] [ref=e39]
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - heading "资料列表" [level=2] [ref=e42]
+              - generic [ref=e43]: 1 item(s)
+            - article [ref=e53]:
+              - generic [ref=e54]:
+                - generic [ref=e55]:
+                  - heading "Probability Notes" [level=3] [ref=e56]
+                  - paragraph [ref=e57]: .txt · ready
+                  - generic [ref=e58]:
+                    - generic [ref=e59]: math
+                    - generic [ref=e60]: probability
+                - button "删除" [ref=e62] [cursor=pointer]
+  - button "Open Next.js Dev Tools" [ref=e68] [cursor=pointer]:
+    - img [ref=e69]
+  - alert [ref=e72]
